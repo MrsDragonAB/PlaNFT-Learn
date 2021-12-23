@@ -9,7 +9,7 @@
             <el-col :span="12">
               <el-menu class="el-menu-vertical-demo">
                 <el-menu-item
-                  @click="text(index)"
+                  @click="text(site)"
                   v-for="(site, index) in sites"
                   :key="index"
                 >
@@ -28,6 +28,7 @@
     
   </div>
 </template>
+
 <script>
 export default {
   data() {
@@ -35,28 +36,57 @@ export default {
       sites: [
         {
           val: "页面一",
+          url:'main1'
         },
         {
           val: "页面二",
+          url:'main2'
         },
         {
           val: "页面三",
+          url:'main3'
         },
         {
           val: "页面四",
+          url:'main4'
         },
       ],
     };
   },
   methods: {
-    text(index) {
-      console.log(11111);
-      this.$router.push("/main"+index);
+    text(site) {
+     
+      this.$router.push(site.url);
+ 
     },
  
   },
-};
+}
 </script>
 <style scoped>
 @import url("//unpkg.com/element-ui@2.15.7/lib/theme-chalk/index.css");
+.headerBox {
+  border: 1px solid black;
+  background-color: #b3c0d1;
+  color: #333;
+  text-align: center;
+  line-height: 60px;
+}
+.navBox {
+  background-color: #d3dce6;
+  color: #333;
+  text-align: center;
+
+  border: 1px solid black;
+}
+.contentBox {
+  border: 1px solid black;
+  background-color: #e9eef3;
+  color: #333;
+  text-align: center;
+  line-height: 160px;
+}
+.el-menu-item{
+  width: 100%;
+}
 </style>

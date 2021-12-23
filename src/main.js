@@ -7,7 +7,7 @@ import vuex from 'vuex'
 import axios from 'axios'
 import ElementUI from 'element-ui'
 
-Vue.prototype.axios = axios
+Vue.prototype.$axios = axios
 Vue.use(ElementUI)
 Vue.use(vuex)
 Vue.config.productionTip = false

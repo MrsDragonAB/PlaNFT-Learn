@@ -1,3 +1,8 @@
 <template>
-    <div>呵呵</div>
+<div>特特</div>
 </template>
+<script>
+export default {
+   
+}
+</script>

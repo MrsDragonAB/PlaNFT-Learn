@@ -1,9 +1,7 @@
 'use strict'
-const port = 8085
 
 module.exports = {
     devServer: {
-        port: port,
         proxy: {  //配置跨域
           '/api': {
             target: 'https://test.planft.com',  //这里后台的地址模拟的;应该填写你们真实的后台接口

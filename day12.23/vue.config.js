@@ -6,7 +6,7 @@ module.exports = {
         port: port,
         proxy: {  //配置跨域
           '/api': {
-            target: 'https://www.runoob.com/try/ajax/json_demo.json',  //这里后台的地址模拟的;应该填写你们真实的后台接口
+            target: 'https://test.planft.com',  //这里后台的地址模拟的;应该填写你们真实的后台接口
             changOrigin: true,  //允许跨域
             pathRewrite: {
               /* 重写路径，当我们在浏览器中看到请求的地址为：http://localhost:8080/api/core/getData/userInfo 时

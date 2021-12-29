@@ -12,7 +12,7 @@
           <el-input v-model="formInline.user" placeholder="Title"></el-input>
         </el-form-item>
         <el-form-item label="sortBy" prop="region">
-          <el-input v-model="formInline.sortBy" placeholder="sortBy"></el-input>
+          <el-input v-model="formInline.region" placeholder="sortBy"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="query()">查询</el-button>
@@ -24,9 +24,7 @@
     <div>
       <el-table
         style="width: 100%"
-        :data="
-          record.slice((currentPage - 1) * pagesize, currentPage * pagesize)
-        "
+        :data="record"
       >
         <el-table-column prop="userAddress" label="用户地址" width="180">
         </el-table-column>
@@ -62,12 +60,12 @@ export default {
     return {
       formInline: {
         user: "",
-        region: [],
+        region: "",
       },
       record: [],
       currentPage: 1,
       page: 1,
-      pagesize: 4,
+      pageSize: 4,
     };
   },
   mounted() {
@@ -76,14 +74,15 @@ export default {
   methods: {
     getData() {
       const params = {
-        page: this.page,
+        page: this.currentPage,
         pageSize: this.pageSize,
         title: "",
         sortBy: 1,
       };
-      axios.get("api/market/sales", params).then((response) => {
+      axios.get("api/market/sales", {params}).then((response) => {
         this.record = response.data.data.content;
         console.log(this.record);
+        console.log(this.pageSize)
       });
     },
     handleSizeChange() {
@@ -95,8 +94,8 @@ export default {
       this.currentPage = currentPage;
       this.getData();
     },
-    clear(id) {
-      this.$refs[id].resetFields();
+    clear(formName) {
+      this.$refs[formName].resetFields();
     },
     query() {
       axios.get("api/market/sales").then((response) => {

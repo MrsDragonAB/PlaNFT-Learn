@@ -6,7 +6,6 @@ import QS from 'qs'
 
 
 const request = axios.create({
-    baseURL: 'https://test.planft.com',
     timeout:5000,
 })
 

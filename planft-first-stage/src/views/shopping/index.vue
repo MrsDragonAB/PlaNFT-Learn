@@ -3,7 +3,7 @@
     <div class="sacle">
       <ul v-for="(list, index) in lists" :key="index">
         <div class="title">
-          <img src="../assets/ranify.png" alt="" /><span>{{ list.name }}</span>
+          <img src="../../assets/ranify.png" alt="" /><span>{{ list.name }}</span>
           <hr />
         </div>
         <div class="label"><span>Karin en el mundo</span></div>
@@ -16,6 +16,7 @@
     </div>
  
     <div>
+      <h1>图片放大</h1>
       <div class="demo-image__preview">
         <el-image
           style="width: 100px; height: 100px"
@@ -32,32 +33,32 @@
 export default {
   data() {
     return {
-      url: require("../assets/sacle.jpg"),
-      srcList: [require("../assets/sacle.jpg")],
+      url: require("../../assets/sacle.jpg"),
+      srcList: [require("../../assets/sacle.jpg")],
       lists: [
         {
           name: "Rinkeby",
-          url: require("../assets/list.png"),
+          url: require("../../assets/list.png"),
         },
         {
           name: "adasd",
-          url: require("../assets/list.png"),
+          url: require("../../assets/list.png"),
         },
         {
           name: "fdgnkj",
-          url: require("../assets/list.png"),
+          url: require("../../assets/list.png"),
         },
         {
           name: "ksdkfjdk",
-          url: require("../assets/list.png"),
+          url: require("../../assets/list.png"),
         },
         {
           name: "asfasf",
-          url: require("../assets/list.png"),
+          url: require("../../assets/list.png"),
         },
         {
           name: "ajshflas",
-          url: require("../assets/list.png"),
+          url: require("../../assets/list.png"),
         },
       ],
     };
@@ -67,7 +68,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import url("//unpkg.com/element-ui@2.15.7/lib/theme-chalk/index.css");
 .title {
   text-align: center;
 }
@@ -77,11 +77,10 @@ export default {
 }
 .title hr {
   border-color: Snow;
-  width: 250px;
+  width: 270px;
 }
 .sacle-connect img {
   margin: 5px 0;
-  border: 1px solid red;
   width: 270px;
   height: 270px;
 }

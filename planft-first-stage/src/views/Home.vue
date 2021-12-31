@@ -3,7 +3,11 @@
     <dailog :centerDialogVisible="centerDialogVisible"></dailog>
     <div class="header">
       <div class="left"><span>PlaNFT-Learn</span></div>
-      <div class="right"><button @click="connect()">Connect Wallet</button></div>
+      <div class="right">
+        <button @click="connect()">
+          {{ walletInfo.account ? walletInfo.account : "Connect Wallet" }}
+        </button>
+      </div>
     </div>
     <div class="health">
       <div class="nav">
@@ -35,21 +39,28 @@
         </el-col>
       </div>
       <div class="content">
-        <router-view/>
+        <router-view />
       </div>
     </div>
   </div>
 </template>
 <script>
-import dailog from '../components/connect/index.vue'
+import dailog from "../components/connect/index.vue";
 export default {
-  components:{
-    dailog
+  components: {
+    dailog,
   },
   data() {
     return {
-      centerDialogVisible:false,
+      walletInfo: "",
+      centerDialogVisible: false,
     };
+  },
+  watch: {
+    "$store.state.walletInfo"(newVal) {
+      this.walletInfo = newVal;
+      console.log(",,,,,", newVal);
+    },
   },
   methods: {
     send() {
@@ -64,9 +75,9 @@ export default {
     animation() {
       this.$router.push("shopping");
     },
-    connect(){
-      this.centerDialogVisible = true;     
-    }
+    connect() {
+      this.centerDialogVisible = true;
+    },
   },
 };
 </script>

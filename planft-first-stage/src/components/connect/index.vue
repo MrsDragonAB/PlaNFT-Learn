@@ -7,8 +7,8 @@
   >
     <div class="frame">
       <ul class="list">
-        <li @click="handleClose()">
-          <span class="size1" >Metamask</span
+        <li @click="handleClose('Metamask')">
+          <span class="size1">Metamask</span
           ><img src="../../assets/组 3172.png" alt="" />
         </li>
         <li>
@@ -40,36 +40,35 @@
   </el-dialog>
 </template>
 <script>
-import connectMetaMask from '../../WalletConnect/metamask'
+import connectMetaMask from "../../WalletConnect/metamask";
 export default {
-  
-props:['centerDialogVisible'],
-data(){
-    return{
-        centerDialogVisible2:false,
-    }
-},
-watch:{
-  centerDialogVisible:{
-    handler(newVal){
-      this.centerDialogVisible2 = newVal
-    }
-  }
-},
-methods:{
-    async handleClose(){
-      let obj
-      obj = await connectMetaMask();
-      this.centerDialogVisible2 = false;
-
-    }
-    }
-  
-
-}
+  props: ["centerDialogVisible"],
+  data() {
+    return {
+      centerDialogVisible2: false,
+    };
+  },
+  watch: {
+    centerDialogVisible: {
+      handler(newVal) {
+        this.centerDialogVisible2 = newVal;
+      },
+    },
+  },
+  methods: {
+    async handleClose(walletType) {
+      if (walletType === "Metamask") {
+        let obj = {};
+        obj = await connectMetaMask();
+        this.$store.commit("SET_USER_WALLETINFO", obj);
+        this.centerDialogVisible2 = false;
+      }
+    },
+  },
+};
 </script>
 
 <style  lang="less" scoped>
- @import "./dailog.less";
+@import "./dailog.less";
 </style>
 

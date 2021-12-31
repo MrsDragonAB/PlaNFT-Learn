@@ -98,10 +98,12 @@ export default {
       this.$refs[formName].resetFields();
     },
     query() {
+      
+      // this.record = this.formInline
       axios.get("market/sales").then((response) => {
-        this.formInline.user = JSON.stringify(response.data.data.content);
-        this.record.filter()
-        console.log(this.formInline.user );
+        this.formInline.user = response.data.data.content;
+        // this.record.filter()
+        console.log(this.formInline.user ); 
         
       });
     },

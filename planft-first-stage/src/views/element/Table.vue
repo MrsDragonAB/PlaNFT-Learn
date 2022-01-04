@@ -22,10 +22,7 @@
     </div>
     <!-- 表格 -->
     <div>
-      <el-table
-        style="width: 100%"
-        :data="record"
-      >
+      <el-table style="width: 100%" :data="record">
         <el-table-column prop="userAddress" label="用户地址" width="180">
         </el-table-column>
         <el-table-column prop="chainSymbol" label="链标识" width="180">
@@ -79,10 +76,9 @@ export default {
         title: "",
         sortBy: 1,
       };
-      axios.get("market/sales", {params}).then((response) => {
+      axios.get("market/sales", { params }).then((response) => {
         this.record = response.data.data.content;
         console.log(this.record);
-        console.log(this.pageSize)
       });
     },
     handleSizeChange() {
@@ -90,7 +86,6 @@ export default {
     },
     //点击第几页
     handleCurrentChange(currentPage) {
-      //   this.currentPage = currentPage;
       this.currentPage = currentPage;
       this.getData();
     },
@@ -98,21 +93,16 @@ export default {
       this.$refs[formName].resetFields();
     },
     query() {
-      
-      // this.record = this.formInline
-      axios.get("market/sales").then((response) => {
-        this.formInline.user = response.data.data.content;
-        // this.record.filter()
-        console.log(this.formInline.user ); 
-        
-      });
+      axios
+        .post("market/sales", { user: "", sortBy: "lastTraded" })
+        .then((response) => {
+          // this.formInline.user = response.data.data.content;
+          // this.record.filter()
+          console.log(response.title);
+        });
     },
   },
 };
 </script>
 <style scoped>
-.table{
-    display: flex;
-    justify-content: space-between;
-}
 </style>

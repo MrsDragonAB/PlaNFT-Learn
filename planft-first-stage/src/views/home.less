@@ -1,52 +1,61 @@
 .whole {
-    height: 900px;
+  height: 900px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid whitesmoke;
+  width: 100%;
+  height: 60px;
+
+  .left {
+    margin: auto 70px;
+
+    span {
+      color: blue;
+      font-size: 20px;
+    }
   }
-  .header {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid whitesmoke;
-    width: 100%;
-    height: 60px;
-    .left{
-      margin: auto 70px;
-      span{
-        color: blue;
-        font-size: 20px;
+
+  .right {
+    margin: auto 35px;
+
+    button {
+      width: 140px;
+      height: 40px;
+      background: blue;
+      color: white;
+      border-radius: 7px;
+
+      &:hover {
+        cursor: pointer;
+        opacity: .8;
       }
     }
-    .right{
-      margin: auto 35px;
-      button{
-        width: 140px;
-        height: 40px;
-        background: blue;
-        color: white;
-        border-radius: 7px;
-        &:hover{
-          cursor: pointer;
-          opacity: .8;
-        }
-      }
-    }
   }
-  .health {
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
-    width: 100%;
-    
+}
+
+.health {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+
+}
+
+.nav {
+  display: flex;
+  background-color: rgb(84, 92, 100);
+  width: 250px;
+  height: 100%;
+
+  .el-menu {
+    border: none;
   }
-  .nav {
-    display: flex;
-    background-color: rgb(84, 92, 100);
-    width: 250px;
-    height: 100%;
-    .el-menu{
-        border: none;
-    }
-  }
-  .content {
-    flex: 1;
-    padding: 15px;
-  }
- 
+}
+
+.content {
+  flex: 1;
+  padding: 15px;
+}

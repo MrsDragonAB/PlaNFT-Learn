@@ -15,35 +15,32 @@ VueRouter.prototype.push = function push(location) {
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home,
-    children: [
-      {
-        path: '/from',
-        name: 'From',
-        component: From,
-      },
-      {
-        path: '/send',
-        name: 'Send',
-        component: Send,
-      },
-      {
-        path: '/table',
-        name: 'Table',
-        component: Table,
-      },
-      {
-        path: '/shopping',
-        name: 'Shopping',
-        component: Shopping,
-      },
-    ],
-  },
-]
+const routes = [{
+  path: '/',
+  name: 'Home',
+  component: Home,
+  children: [{
+      path: '/from',
+      name: 'From',
+      component: From,
+    },
+    {
+      path: '/send',
+      name: 'Send',
+      component: Send,
+    },
+    {
+      path: '/table',
+      name: 'Table',
+      component: Table,
+    },
+    {
+      path: '/shopping',
+      name: 'Shopping',
+      component: Shopping,
+    },
+  ],
+}, ]
 
 const router = new VueRouter({
   mode: 'history',

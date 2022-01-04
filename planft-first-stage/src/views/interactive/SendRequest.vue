@@ -56,7 +56,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less" scope>
 .box {
   width: 50px;
   height: 30px;

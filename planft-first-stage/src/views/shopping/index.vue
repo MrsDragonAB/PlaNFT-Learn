@@ -1,11 +1,15 @@
 <template>
   <div class="hello">
     <div class="sacle">
-      <ul v-for="(list, index) in lists" :key="index">
+      <div class="sacle-box" v-for="(list, index) in lists" :key="index">
+      <ul >
         <div class="title">
-          <img src="../../assets/ranify.png" alt="" /><span>{{ list.name }}</span>
-          <hr />
+          <img src="../../assets/ranify.png" alt="" /><span>{{
+            list.name
+          }}</span>
+          
         </div>
+        <hr />
         <div class="label"><span>Karin en el mundo</span></div>
         <div class="content">
           <div><span>Karin en Ostrovnoy </span></div>
@@ -13,8 +17,9 @@
         </div>
         <div class="sacle-connect"><img :src="list.url" alt="" /></div>
       </ul>
+      </div>
     </div>
- 
+
     <div>
       <h1>图片放大</h1>
       <div class="demo-image__preview">
@@ -69,7 +74,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .title {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .title img {
   width: 22px;
@@ -85,13 +92,18 @@ export default {
   height: 270px;
 }
 .sacle {
+  margin: 0 auto;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
   flex-wrap: wrap;
   width: 100%;
 }
-
+ul{
+  width: 272px;
+  margin:80px;
+  padding: 0;
+}
 .label {
   text-align: left;
 }
@@ -102,7 +114,10 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-
+.sacle-box{
+  display: flex;
+  margin: auto;
+}
 .sacle ul:hover {
   cursor: pointer;
   position: relative;

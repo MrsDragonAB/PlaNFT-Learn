@@ -4,7 +4,6 @@ import {
 import {
   Message
 } from 'element-ui'
-import store from '../store'
 
 async function connectMetaMask() {
 

@@ -33,7 +33,7 @@
             </el-menu-item>
             <el-menu-item index="4" @click="animation()">
               <i class="el-icon-setting"></i>
-              <span slot="title">动画</span>
+              <span slot="title">商品列表</span>
             </el-menu-item>
           </el-menu>
         </el-col>
@@ -78,6 +78,7 @@ export default {
     connect() {
       this.centerDialogVisible = true;
     },
+   
   },
 };
 </script>

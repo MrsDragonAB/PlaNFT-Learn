@@ -1,34 +1,55 @@
 <template>
-  <div class="hello">
-    <div class="sacle">
-      <div class="sacle-box" v-for="(list, index) in lists" :key="index">
-      <ul >
-        <div class="title">
-          <img src="../../assets/ranify.png" alt="" /><span>{{
-            list.name
-          }}</span>
-          
+  <div>
+    <div class="from-box">
+      <div></div>
+      <div class="chainBox">
+        <div class="select-box">
+          <div class="selectBoxImg"></div>
+          <el-select v-model="formInline.region" placeholder="ALL Chains">
+            <el-option label="区域一" value="shanghai"></el-option>
+            <el-option label="区域二" value="beijing"></el-option>
+          </el-select>
         </div>
-        <hr />
-        <div class="label"><span>Karin en el mundo</span></div>
-        <div class="content">
-          <div><span>Karin en Ostrovnoy </span></div>
-          <div><span># 249046</span></div>
+      </div>
+      
+        <div class="select-box">
+          <el-select  placeholder="fsefwsfwsfwe" style="width:190px">
+            <el-option label="区域一" value="shanghai"></el-option>
+            <el-option label="区域二" value="beijing"></el-option>
+          </el-select>
         </div>
-        <div class="sacle-connect"><img :src="list.url" alt="" /></div>
-      </ul>
+      
+      <div>
+        <el-select v-model="formInline.region" placeholder="活动区域">
+          <el-option label="区域一" value="shanghai"></el-option>
+          <el-option label="区域二" value="beijing"></el-option>
+        </el-select>
       </div>
     </div>
-
-    <div>
-      <h1>图片放大</h1>
-      <div class="demo-image__preview">
-        <el-image
-          style="width: 100px; height: 100px"
-          :src="url"
-          :preview-src-list="srcList"
-        >
-        </el-image>
+    <div class="shopping">
+      <div class="content">
+        <div class="order-list">
+          <div class="item-box" v-for="(list, index) in lists" :key="index">
+            <div class="item">
+              <div class="chainBox">
+                <img src="../../assets/ranify.png" alt="" class="chainLogo" />
+                <span class="chainName">Rinkeby</span>
+              </div>
+              <div class="titleBox">
+                <span class="topt1">cp punks</span>
+              </div>
+              <div class="titleBox">
+                <span>Cigar punk</span>
+                <span>#5</span>
+              </div>
+              <div class="img-box">
+                <div class="img">
+                  <img src="../../assets/list.png" alt="" class="el-img" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -38,8 +59,6 @@
 export default {
   data() {
     return {
-      url: require("../../assets/sacle.jpg"),
-      srcList: [require("../../assets/sacle.jpg")],
       lists: [
         {
           name: "Rinkeby",
@@ -66,74 +85,201 @@ export default {
           url: require("../../assets/list.png"),
         },
       ],
+      formInline: {
+        user: "",
+        region: "",
+      },
     };
+  },
+  methods: {
+    onSubmit() {
+      console.log("submit!");
+    },
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.title {
+<style lang="less" scoped>
+.from-box {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  align-items: center;
+  margin: 0 0 61px;
+  .select-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    width: 261px;
+    height: 48px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    /deep/.el-input__inner {
+      border: none;
+      line-height: 48px;
+      text-align: center;
+    }
+  }
+  .chainBox {
+    .select-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      width: 261px;
+      height: 48px;
+      border: 1px solid #dcdcdc;
+      border-radius: 6px;
+      .selectBoxImg {
+        position: absolute;
+        top: 12px;
+        left: 20px;
+        min-width: 24px;
+        max-width: 24px;
+        height: 24px;
+      }
+      /deep/.el-input__inner {
+        border: none;
+        line-height: 48px;
+        text-align: center;
+      }
+    }
+    .el-select {
+      width: 100%;
+      .el-input {
+        width: 100%;
+        position: relative;
+      }
+    }
+  }
 }
-.title img {
-  width: 22px;
-  height: 22px;
-}
-.title hr {
-  border-color: Snow;
-  width: 270px;
-}
-.sacle-connect img {
-  margin: 5px 0;
-  width: 270px;
-  height: 270px;
-}
-.sacle {
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  flex-wrap: wrap;
+
+.shopping {
   width: 100%;
-}
-ul{
-  width: 272px;
-  margin:80px;
-  padding: 0;
-}
-.label {
-  text-align: left;
-}
-.label span {
-  color: #c1c1c1;
-}
-.content {
-  display: flex;
-  justify-content: space-between;
-}
-.sacle-box{
-  display: flex;
-  margin: auto;
-}
-.sacle ul:hover {
-  cursor: pointer;
-  position: relative;
-  /* 第一种动画效果 */
-  transform: translateY(-10px);
-  transition: all 0.2s ease;
-  /* 第二种动画效果 */
-  /* animation: myfirst 1s; */
-  box-shadow: 0 3px 18px rgb(0 0 0 / 10%);
-}
-/* @keyframes myfirst {
-  from {
-    bottom: 0px;
+  .content {
+    margin: 0 auto;
+    max-width: 1300px;
+    padding: 0 30px;
+
+    .order-list {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      .item-box {
+        max-width: 1300px;
+        display: flex;
+        justify-content: center;
+        // margin: 0 48px;
+        width: 33.3%;
+        margin-bottom: 100px;
+        .item {
+          width: 300px;
+          background: skyblue;
+          border-radius: 2px;
+          padding: 10px 12px 14px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 3px 18px rgb(0 0 0 / 10%);
+          }
+          .chainBox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0 10px;
+            border-bottom: 1px solid #f3f3f3;
+            margin: 0 0 9px;
+            .chainLogo {
+              width: 23px;
+              height: 23px;
+              border-radius: 50%;
+              margin-right: 7px;
+              & .chainName {
+                font-size: 14px;
+                color: #696969;
+                line-height: 18px;
+                font-weight: 500;
+              }
+            }
+          }
+          .titleBox {
+            height: 19px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 7px 0;
+            font-size: 14px;
+            font-weight: 700;
+            .topt1 {
+              color: #c1c1c1;
+            }
+          }
+          .img-box {
+            width: 100%;
+            height: 276px;
+            .img {
+              width: 100%;
+              height: 100%;
+              .el-img {
+                width: 300px;
+                height: 276px;
+              }
+            }
+          }
+        }
+      }
+      .item-box:nth-child(3n + 1) {
+        justify-content: start;
+      }
+      .item-box:nth-child(3n) {
+        justify-content: flex-end;
+      }
+    }
   }
-  to {
-    bottom: 10px;
+}
+@media screen and (max-width: 1260px) {
+  .shopping {
+    .content {
+      .order-list {
+        min-width: 750px;
+        padding: 0 0 100px;
+        .item-box:nth-child(3n + 1) {
+          justify-content: center;
+        }
+        .item-box:nth-child(3n) {
+          justify-content: center;
+        }
+        .item-box {
+          width: 50%;
+          display: flex;
+          justify-content: center;
+          margin-bottom: 50px;
+        }
+      }
+    }
   }
-} */
+}
+@media screen and (max-width: 750px) {
+  .shopping {
+    .content {
+      .order-list {
+        max-width: 100%;
+        min-width: 100%;
+        padding: 0 0 100px;
+        .item-box:nth-child(3n + 1) {
+          justify-content: center;
+        }
+        .item-box:nth-child(3n) {
+          justify-content: center;
+        }
+        .item-box {
+          width: 100%;
+          margin: 0 0 50px 0;
+        }
+      }
+    }
+  }
+}
 </style>
